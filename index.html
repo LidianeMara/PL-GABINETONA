@@ -29,22 +29,27 @@
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#config-web-app -->
 
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
 <script>
   // Your web app's Firebase configuration
   var firebaseConfig = {
-    apiKey: "AIzaSyBnRPo3bYnE-Un05eQjteXlmTAPB8OQJx4",
-    authDomain: "gabinetona-pl.firebaseapp.com",
-    databaseURL: "https://gabinetona-pl.firebaseio.com",
-    projectId: "gabinetona-pl",
+    apiKey: "AIzaSyBJsd4GwK0rU5LvWdIZ-cWXdUpUx2AoXdU",
+    authDomain: "pl-gabinetona.firebaseapp.com",
+    databaseURL: "https://pl-gabinetona.firebaseio.com",
+    projectId: "pl-gabinetona",
     storageBucket: "",
-    messagingSenderId: "1024181509828",
-    appId: "1:1024181509828:web:32822665176c64ed"
+    messagingSenderId: "426709027861",
+    appId: "1:426709027861:web:e2a5379dd4c05e56"
   };
-  // Initialize Firebase
-  app=firebase.initializeApp(firebaseConfig);
-  db = app.firestore()
 
- window.addEventListener('load', function(){
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  window.addEventListener('load', function(){
  let f = document.querySelector('form');
  function saveUser(name,email) {
   db.collection("users").add({
@@ -331,7 +336,7 @@
                 <label class="custom-control-label" for="option">Receba a nossa newsletter</label>
               </div>
               <div id="sendForm"></div>
-              <button type="submit" id="submit" name="enviar" class="btn btn-primary btn-xl js-scroll-trigger">Quero
+              <button type="submit" class="btn btn-primary btn-xl js-scroll-trigger">Quero
                 saber mais!</button>
             </form>
           </div>
