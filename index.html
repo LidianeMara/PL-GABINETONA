@@ -22,6 +22,46 @@
   <!-- Theme CSS - Includes Bootstrap -->
   <link href="css/creative.css" rel="stylesheet">
 
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBnRPo3bYnE-Un05eQjteXlmTAPB8OQJx4",
+    authDomain: "gabinetona-pl.firebaseapp.com",
+    databaseURL: "https://gabinetona-pl.firebaseio.com",
+    projectId: "gabinetona-pl",
+    storageBucket: "",
+    messagingSenderId: "1024181509828",
+    appId: "1:1024181509828:web:32822665176c64ed"
+  };
+  // Initialize Firebase
+  app=firebase.initializeApp(firebaseConfig);
+  var db = firebase.firestore();
+
+  db.collection("users").add({
+    first: "Ada",
+    last: "Lovelace",
+    born: 1815
+})
+.then(function(docRef) {
+    console.log("Document written with ID: ", docRef.id);
+})
+.catch(function(error) {
+    console.error("Error adding document: ", error);
+});
+
+
+
+</script>
+
+
+
   <!--SCRIPT FORMULARIO (AJAX+PHP)-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script>
@@ -57,39 +97,6 @@
 </head>
 
 <body id="page-top">
-
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#config-web-app -->
-
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyBnRPo3bYnE-Un05eQjteXlmTAPB8OQJx4",
-    authDomain: "gabinetona-pl.firebaseapp.com",
-    databaseURL: "https://gabinetona-pl.firebaseio.com",
-    projectId: "gabinetona-pl",
-    storageBucket: "",
-    messagingSenderId: "1024181509828",
-    appId: "1:1024181509828:web:32822665176c64ed"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-</script>
-
-
-
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="/__/firebase/6.3.1/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#reserved-urls -->
-
-<!-- Initialize Firebase -->
-<script src="/__/firebase/init.js"></script>
-
 
   <!-- START Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
