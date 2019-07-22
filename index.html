@@ -42,59 +42,35 @@
   };
   // Initialize Firebase
   app=firebase.initializeApp(firebaseConfig);
-  var db = firebase.firestore();
+  db = app.firestore()
 
+ window.addEventListener('load', function(){
+ let f = document.querySelector('form');
+ function saveUser(name,email) {
   db.collection("users").add({
-    first: "Ada",
-    last: "Lovelace",
-    born: 1815
-})
-.then(function(docRef) {
-    console.log("Document written with ID: ", docRef.id);
-})
-.catch(function(error) {
-    console.error("Error adding document: ", error);
-});
+    name:name, email:email    
+  })
+  .then(function(docRef) {
+     alert('Inscrição realizada com sucesso!');
+     f.elements['name'].value="";
+     f.elements['email'].value="" ;
+  })
+  .catch(function(error) {
+      console.error("Error adding document: ", error);
+  });
+ }
+  f.addEventListener('submit', function(e) {
+    let name = f.elements['name'].value
+    let email = f.elements['email'].value
+    saveUser(name,email);
+    e.preventDefault();
+  })
 
-
+ });
 
 </script>
 
-
-
-  <!--SCRIPT FORMULARIO (AJAX+PHP)-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      $('#myform').submit(function () {
-        var dados = $('#myform').serialize();
-        $.ajax({
-          type: 'POST',
-          url: 'modules/cadastro.php',
-          data: dados,
-          dataType: 'html',
-          success: function (data) {
-            var $title = $('<h3>').text('Muito obrigado!');
-            var $description = $('<p>').text('Por favor, aguarde o convite para o beta.');
-            $('#sendForm')
-              .append($title)
-              .append($description);
-            $("#submit").hide();
-            $(".modal-input").hide();
-            $(".checkbox").hide();
-            $(".titulo-form").hide();
-            $('#myform')[0].reset();
-          },
-          error: function (xhr, ajaxOptions, thrownError) {
-            alert(xhr.status);
-            alert(thrownError);
-          }
-        });
-        return false;
-      });
-    });
-  </script>
-</head>
+ </head>
 
 <body id="page-top">
 
@@ -341,17 +317,15 @@
         </div>
         <div class="col-lg-6 mr-auto">
           <div class="search-wrapper">
-            <form id="myform" action="modules/cadastro.php" method="POST">
+            <form>
               <h3 class="titulo-form">Fique por dentro</h3>
               <div class="form-group">
-                <input class="form-control" type="text" name="nome" placeholder="Nome" required>
+                <input class="form-control" type="text" name="name" placeholder="Nome" required>
               </div>
               <div class="form-group">
                 <input class="form-control" type="email" name="email" placeholder="E-mail" required>
               </div>
-              <div class="form-group">
-                <input class="form-control" type="text" name="unidade" placeholder="Profissão" required>
-              </div>
+              
               <div class="form-group custom-control custom-checkbox text-left mb-5">
                 <input type="checkbox" id="option" class="custom-control-input" value="ATIVO" name="news">
                 <label class="custom-control-label" for="option">Receba a nossa newsletter</label>
