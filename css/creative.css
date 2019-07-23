@@ -6609,9 +6609,27 @@ a.close.disabled {
   color: #4b4b4b;
 }
 
-.carousel {
-  position: relative;
+
+
+.carousel{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  height:90%;
 }
+
+.img {
+  width: 100%;
+  height: auto;
+}
+
+.carousel-caption h5{
+   font-size: 20px;
+
+}
+
 
 .carousel.pointer-event {
   -ms-touch-action: pan-y;
@@ -6628,6 +6646,11 @@ a.close.disabled {
   display: block;
   clear: both;
   content: "";
+}
+
+.img .carousel-item {
+    width: 100%;
+    height: auto;
 }
 
 .carousel-item {
@@ -10286,6 +10309,7 @@ button.bg-dark:focus {
 
 .text-center {
   text-align: center !important;
+  margin-bottom: 30px;
 }
 
 @media (min-width: 576px) {
